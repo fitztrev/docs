@@ -1,4 +1,4 @@
-# User interface
+# User Interface
 
 The mithril or snabbdom UI modules are in `ui/`. Say we work on `ui/round`, the playing UI.
 

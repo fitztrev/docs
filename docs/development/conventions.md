@@ -1,4 +1,6 @@
-# Naming conventions
+# Conventions
+
+## Naming Conventions
 
 - provide global guidance here for naming functions and variables where possible, customize for each language in specific sections below
 - truly general stuff can go here like "prefix boolean methods with is/has/can"
@@ -8,7 +10,6 @@
 - camelCase, first letter capitals for constants, classes, objects, types, blah
 - prefer scala3 style (indent unless braces are needed, no-paren ifs, etc)
 - prefer extension methods in lila.common.base.\*, ornicar.scalalib, and cats (.some, Option.has, etc)
-- (link to or combine this wiki with lilaisms)
 
 ## Typescript
 
@@ -29,25 +30,3 @@
 ## mongo
 
 - snake_case collections, camelCase fields
-
-## routes
-
-- tbd
-
-## CSS
-
-- tbd
-
-## Python
-
-- use PEP8
-
-## Rust
-
-- ping @1vader
-
-# Pull requests
-
-- Only one bugfix or one feature per pull request.
-
-# Somebody please write this wiki

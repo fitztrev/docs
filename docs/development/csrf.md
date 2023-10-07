@@ -1,10 +1,12 @@
-# Preventing unauthorized writes
+# Defenses against Cross Site Request Forgery
+
+## Preventing unauthorized writes
 
 > **Rule 1:** HTTP endpoints must strictly use the appropriate HTTP methods, i.e. `GET` and other ["safe" methods](https://developer.mozilla.org/en-US/docs/Glossary/safe) should not change any state on the server.
 
 Before even routing, a global request handler [checks](https://github.com/ornicar/lila/blob/master/modules/security/src/main/CSRFRequestHandler.scala) the `Origin` header on all unsafe requests.
 
-# Preventing unauthorized reads
+## Preventing unauthorized reads
 
 ~In absence of CORS, only JSON and XML can be read in cross site requests.~
 
@@ -20,13 +22,13 @@ The above rule is no longer required in modern browsers (and older browsers cann
 
 This allows `/api/` to safely be whitelisted for CORS from all origins. When authentication is required, OAuth can be used instead.
 
-# WebSockets
+## WebSockets
 
 WebSockets are special, because they are iniated with a safe request, despite often being used to change server side state. Browsers allow creating WebSockets across origins, even in absence of CORS.
 
 > **Rule 4:** WebSockets from untrusted origins must be treated as unauthenticated/anonymous.
 
-# Trusted origins
+## Trusted origins
 
 - `https://lichess.org` and subdomains
 - `ionic://localhost` (mobile app web view on iOS)

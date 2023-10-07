@@ -40,4 +40,3 @@ When you're done with your local package changes. Afterwards, `pnpm` & `ui/build
 ## Here are some useful links:
 
 - [Symbols you can use on lichess webpages](https://lichess.org/assets/oops/font.html) (defined in `public/font/lichess.sfd`)
-- add some links

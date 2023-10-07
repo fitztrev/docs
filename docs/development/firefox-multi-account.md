@@ -10,11 +10,11 @@ This sample Multi-Account Container menu associates containers with spamdb users
 
 To make the tabs reflect the username, go to the `st.headTitle` block in the `head` tag of the `apply` method in `app/views/base/layout.scala` and make it look like this:
 
-```
-          st.headTitle:
-            if ctx.blind then "lichess"
-            else if netConfig.isProd then fullTitle | s"$title • lichess.org"
-            else ctx.me.so(_.username) // schlawg is a dirty, filthy boy
+```scala
+st.headTitle:
+  if ctx.blind then "lichess"
+  else if netConfig.isProd then fullTitle | s"$title • lichess.org"
+  else ctx.me.so(_.username)
 ```
 
 Don't check that in by mistake.
