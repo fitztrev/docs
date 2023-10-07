@@ -24,7 +24,6 @@ nav:
           - Bloop: local-setup/bloop.md
           - intellij: local-setup/intellij.md
   - Development:
-      - Working with Lila: development.md
       - Lilaisms: development/lilaisms.md
       - Conventions: development/conventions.md
       - Translations: development/translations.md
@@ -51,6 +50,9 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
+
+extra_css:
+  - custom.css
 
 markdown_extensions:
   - admonition
