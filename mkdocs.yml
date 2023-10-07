@@ -1,6 +1,6 @@
 site_name: Lichess Development
 
-repo_url: https://github.com/fitztrev/lichess-docs/
+repo_url: https://github.com/fitztrev/docs
 edit_uri: blob/main/docs/
 
 nav:
