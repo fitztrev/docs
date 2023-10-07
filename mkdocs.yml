@@ -5,7 +5,7 @@ edit_uri: blob/main/docs/
 
 nav:
   - Home: index.md
-  - Dev Environment:
+  - Dev Environments:
       - lila-gitpod:
           - Setup: lila-gitpod/index.md
           - Usage: lila-gitpod/usage.md

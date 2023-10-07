@@ -1,4 +1,4 @@
-See also: [Working on translations](https://github.com/lichess-org/lila/wiki/Tips-for-UI,-translations,-insights,-swiss,-accessibility#translations)
+See also: [Working on translations](ui.md#translations)
 
 ## Basics
 

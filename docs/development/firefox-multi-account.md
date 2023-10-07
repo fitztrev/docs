@@ -19,4 +19,4 @@ To make the tabs reflect the username, go to the `st.headTitle` block in the `he
 
 Don't check that in by mistake.
 
-To further distinguish them, you can use [`spamdb.py`](https://github.com/lichess-org/lila/wiki/Lichess-Development---customizing-your-db) `--user-bg 400` option to create users with a random background image selected from `data/image-links.txt`
+To further distinguish them, you can use [`spamdb.py`](../local-setup/db.md) `--user-bg 400` option to create users with a random background image selected from `data/image-links.txt`

@@ -4,8 +4,6 @@ The following instructions outline how to set up your development environment fo
 
 If you get stuck during the installation process the most suitable place to seek help is the `#lichess-dev-onboarding` channel on Discord (https://discord.gg/lichess). The main developer of Lichess (thibault) can be found there as well as several people who have successfully installed the stack.
 
-You may also find answers to other development-related questions in the [GitHub Wiki](https://github.com/lichess-org/lila/wiki).
-
 ## Stream recordings
 
 [![https://www.youtube.com/watch?v=AejdHlL902w](https://img.youtube.com/vi/AejdHlL902w/0.jpg)](https://www.youtube.com/watch?v=AejdHlL902w&list=PLe5ZNOR8Ttm1LlBRmmnccZkQa7XH1K0rK)
@@ -155,7 +153,7 @@ cargo run -- --endpoint http://localhost:9665/fishnet/
 
 ## Development
 
-[Learn more about using `pnpm` and `ui/build` to work on client code](https://github.com/lichess-org/lila/wiki/Lichess-UI-Development)
+[Learn more about using `pnpm` and `ui/build` to work on client code](../development/ui.md)
 
 ### Bloop based setup for hacking lila scala code
 
@@ -217,7 +215,7 @@ https://github.com/keaaw/howto/blob/main/lichess-dev.md
 
 ### IntelliJ IDE (instructions need updating)
 
-Here is a guide on how to [set up lila with the IntelliJ IDE](<https://github.com/lichess-org/lila/wiki/Lichess-Development-Onboarding-(IntelliJ-on-Linux)>).
+Here is a guide on how to [set up lila with the IntelliJ IDE](intellij.md).
 
 ## Troubleshooting
 

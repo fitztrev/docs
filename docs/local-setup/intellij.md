@@ -65,7 +65,7 @@ There are two integrated SBT tools you would want to use:
 
 ## Infrastructure
 
-Instead of directly [installing redis and MongoDB as services](https://github.com/lichess-org/lila/wiki/Lichess-Development-Onboarding#running-infrastructure) on your machine, you could spin up a dockerized version instead:
+Instead of directly [installing redis and MongoDB as services](index.md#running-infrastructure) on your machine, you could spin up a dockerized version instead:
 
 Write a `docker-compose.yml` file with those basic contents:
 
