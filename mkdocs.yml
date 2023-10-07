@@ -1,0 +1,43 @@
+site_name: Lichess Development
+
+repo_url: https://github.com/lichess-org/docs/
+edit_uri: blob/main/docs/
+
+nav:
+  - Home: index.md
+  - Dev Environment:
+    - lila-gitpod: lila-gitpod.md
+    - lila-docker: lila-docker.md
+    - Local Setup: local-setup.md
+  - Development:
+      - Working with Lila: development.md
+      - Lilaisms: lilaisms.md
+      - Extensions: extensions.md
+      - Optional Services: optional-services.md
+      - Contributing: contributing.md
+  - API Testing: api-testing.md
+  - Sharing: sharing.md
+  - Other Resources: other-resources.md
+
+theme:
+  name: material
+  logo: https://lichess1.org/assets/logo/lichess-white.svg
+  font: false
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
