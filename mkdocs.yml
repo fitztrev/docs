@@ -1,22 +1,37 @@
 site_name: Lichess Development
 
-repo_url: https://github.com/lichess-org/docs/
+repo_url: https://github.com/fitztrev/lichess-docs/
 edit_uri: blob/main/docs/
 
 nav:
   - Home: index.md
   - Dev Environment:
-    - lila-gitpod: lila-gitpod.md
-    - lila-docker: lila-docker.md
-    - Local Setup: local-setup.md
+      - lila-gitpod:
+          - Setup: lila-gitpod/index.md
+          - Usage: lila-gitpod/usage.md
+          - Extensions: lila-gitpod/extensions.md
+          - Optional Services: lila-gitpod/optional-services.md
+          - API Testing: lila-gitpod/api-testing.md
+          - Contributing: lila-gitpod/contributing.md
+          - Sharing: lila-gitpod/sharing.md
+      - lila-docker:
+          - Setup: lila-docker/index.md
+          - Usage: lila-docker/usage.md
+      - Local Setup:
+          - Setup: local-setup/index.md
+          - Database: local-setup/db.md
+          - lila-search: local-setup/lila-search.md
+          - Bloop: local-setup/bloop.md
+          - intellij: local-setup/intellij.md
   - Development:
       - Working with Lila: development.md
-      - Lilaisms: lilaisms.md
-      - Extensions: extensions.md
-      - Optional Services: optional-services.md
-      - Contributing: contributing.md
-  - API Testing: api-testing.md
-  - Sharing: sharing.md
+      - Lilaisms: development/lilaisms.md
+      - Conventions: development/conventions.md
+      - Translations: development/translations.md
+      - Frontend: development/frontend.md
+      - User Interface: development/ui.md
+      - CSRF: development/csrf.md
+      - Firefox Multi-Account: development/firefox-multi-account.md
   - Other Resources: other-resources.md
 
 theme:
@@ -41,3 +56,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn

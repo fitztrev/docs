@@ -6,7 +6,7 @@ Consider using a lila-gitpod workspace while you develop your API integration be
 
 ## Setup
 
-1. [Create your workspace](lila-gitpod.md)
+1. [Create your workspace](index.md)
 2. [Make port 8080 public](sharing.md), so you can access it from the client.
 
 ## Bot Development

@@ -8,6 +8,10 @@ The main Lichess code is written in [Scala](https://www.scala-lang.org/) and Typ
 
 For a full list of repositories and to see an architecture diagram, see [lichess.org/source](https://lichess.org/source).
 
+!!! info "What is lila?"
+
+    Lichess is primarily written in the Scala programming language. The name for the main Lichess codebase is "lila", which stands for "**_Li_**chess in Sca**_la_**".
+
 ## Ways you can contribute
 
 - For non-code ways you can contribute, see [lichess.org/help/contribute](https://lichess.org/help/contribute)
@@ -18,9 +22,9 @@ For a full list of repositories and to see an architecture diagram, see [lichess
 
 There are 3 ways you can run a development environment, with increasing complexity:
 
-1. [lila-gitpod]() - Using Gitpod, will . This doesn't require any setup on your local machine. Try this to get started quickly and see what a development environment looks like on a fresh install.
-2. [lila-docker]() - Run Lichess locally in Docker containers. Requires Docker Desktop and git.
-3. Install the dependencies and run all the services on your local machine
+1. [lila-gitpod](lila-gitpod/index.md) - Will create a development environment in a remote workspace. This doesn't require any setup on your local machine. Try this to get started quickly and see what a development environment looks like on a fresh install.
+2. [lila-docker](lila-docker/index.md) - Run Lichess locally in Docker containers.
+3. Install the dependencies and run all the services on your local machine. See [Local Setup](local-setup/index.md) for instructions.
 
 ## Competence development program
 

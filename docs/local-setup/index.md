@@ -1,9 +1,5 @@
 The following instructions outline how to set up your development environment for starting development on Lichess. The instructions are aimed to be agnostic of the platform the stack is installed on, so a working knowledge of the specifics of your GNU/Linux distribution or other such Unix-based operating system is assumed. 
 
-You can [set up the environment on a Windows machine](Lichess-Development-Onboarding-(Windows)) or on [macOS](Lichess-Development-Onboarding-(macOS)).
-
-You can also try Lichess development with a [web-based VSCode via GitPod](https://github.com/lichess-org/lila-gitpod) (or connect your local VSCode to a GitPod). Just one click and you're ready to code!
-
 ## Getting Help
 
 If you get stuck during the installation process the most suitable place to seek help is the `#lichess-dev-onboarding` channel on Discord (https://discord.gg/lichess). The main developer of Lichess (thibault) can be found there as well as several people who have successfully installed the stack.
@@ -104,7 +100,7 @@ You can use https://github.com/lichess-org/lila-db-seed to seed your local datab
 git clone https://github.com/lichess-org/lila-db-seed
 ```
 
-For users, games, puzzles, teams, forums, blogs, game histories, timelines, activity, and more - [use the `spamdb.py` script to populate your database](Lichess-Development---customizing-your-db) (requires python 3.9+).
+For users, games, puzzles, teams, forums, blogs, game histories, timelines, activity, and more - [use the `spamdb.py` script to populate your database](db.md) (requires python 3.9+).
 ```
 pip3 install pymongo
 python3 lila-db-seed/spamdb/spamdb.py --help
@@ -145,7 +141,7 @@ cargo run -- --endpoint http://localhost:9665/fishnet/
 ```
 
 ### Optional: Setup Search
-[Follow these instructions to enable game, forum, team, and study search on Lila](Enable-Lila-search)
+[Follow these instructions to enable game, forum, team, and study search on Lila](lila-search.md)
 
 ## Development
 
@@ -153,7 +149,7 @@ cargo run -- --endpoint http://localhost:9665/fishnet/
 
 ### Bloop based setup for hacking lila scala code
 
-[Set up bloop for quick builds and IDE features](Lichess-Development-With-Bloop).
+[Set up bloop for quick builds and IDE features](bloop.md).
 
 ### Code formatting
 
@@ -189,7 +185,7 @@ If you don't want to use the command line, I don't blame you! Consider downloadi
 
 ## Other miscellaneous tips
 
-Here are [some hints](Tips-for-UI,-translations,-insights,-swiss,-accessibility) for working on various parts of the system.
+Here are [some hints](../development/ui.md) for working on various parts of the system.
 
 Spamdb creates a `lichess` admin user and a number of mod accounts listed at the top of `lila-db-seed/spamdb/data/uids.txt`.  If you want to make an admin user manually, connect to the lichess db with `mongo lichess` and run
 ```

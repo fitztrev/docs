@@ -61,7 +61,7 @@ If you're working on emails, you may find it helpful to use [MailHog](https://gi
    mailer.primary.tls = false
    ```
 
-2. Restart lila to apply the config changes (see [Recompiling lila](/development/#recompiling-lila))
+2. Restart lila to apply the config changes (see [Recompiling lila](usage.md#recompiling-lila))
 
 3. Then start MailHog:
    ```
