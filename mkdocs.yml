@@ -36,6 +36,10 @@ nav:
 theme:
   name: material
   logo: https://lichess1.org/assets/logo/lichess-white.svg
+  features:
+    - content.action.edit
+    - content.code.copy
+    - navigation.footer
   font: false
   palette:
     - media: "(prefers-color-scheme: light)"
