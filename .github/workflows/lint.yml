@@ -1,3 +1,5 @@
+name: check formatting
+
 on: [push, pull_request]
 
 jobs:

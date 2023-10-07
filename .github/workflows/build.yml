@@ -1,3 +1,5 @@
+name: check build
+
 on: [push, pull_request]
 
 jobs:
