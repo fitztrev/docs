@@ -17,7 +17,7 @@ lila makes little use of object orientation and particularly inheritance, but:
   The more the value is used in the code, and the more useful it is to type it correctly.
   This rule is actually loosely respected in lila, but that's the direction we're going to.
 
-## Weird shit you will only see in lila
+## Weird code you will only see in lila
 
 If the function you're looking for is not here,
 try the [scala doc](https://scala-lang.org/api/3.x/scala.html)

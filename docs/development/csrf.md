@@ -33,4 +33,4 @@ WebSockets are special, because they are iniated with a safe request, despite of
 - `capacitor://localhost` (mobile app web view on iOS)
 - `http://localhost` (android app web view, or controlled by the user)
 - `http://localhost:8080` (local development)
-- Absense of `Origin` header (mobile app web view, or programmatic access controlled by the user, impossible to forge in cross site requests, note that `null` is rejected)
+- Absence of `Origin` header (mobile app web view, or programmatic access controlled by the user, impossible to forge in cross site requests, note that `null` is rejected)

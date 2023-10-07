@@ -10,7 +10,7 @@ If you get stuck during the installation process the most suitable place to seek
 
 ## Prerequisites
 
-Before beginning, please make sure you have the following tools installed, using your favourite package manager to install them where applicable.
+Before beginning, please make sure you have the following tools installed, using your favorite package manager to install them where applicable.
 
 ### Hardware
 
@@ -249,7 +249,7 @@ Here is a guide on how to [set up lila with the IntelliJ IDE](intellij.md).
   reactivemongo.core.errors.DatabaseException$$anon$1: DatabaseException['error processing query: ns=lichess.challenge limit=50Tree: $and
   ```
 
-  or similar excptions due to missing indexes: Run `mongo lichess bin/mongodb/indexes.js` again.
+  or similar exceptions due to missing indexes: Run `mongo lichess bin/mongodb/indexes.js` again.
 
 - Mongo error when importing games
 
