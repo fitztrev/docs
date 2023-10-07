@@ -10,9 +10,9 @@ Before even routing, a global request handler [checks](https://github.com/ornica
 
 > ~**Rule 2:** All JSON endpoints that can be queried with [simple requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Simple_requests) **must** treat requests as unauthenticated/anonymous and **should** live under `/api/`.~
 
-~For requests that cannot be anonymous (e.g. XHR and requests by the mobile app) simply require them to be *not simple*. This can be done by requiring the `X-Requested-With` header (check `isXhr()` in lila).~
+~For requests that cannot be anonymous (e.g. XHR and requests by the mobile app) simply require them to be _not simple_. This can be done by requiring the `X-Requested-With` header (check `isXhr()` in lila).~
 
-~Since `Accept` headers are considered *simple*, it is insufficient to use only `Accept` to request a JSON response.~
+~Since `Accept` headers are considered _simple_, it is insufficient to use only `Accept` to request a JSON response.~
 
 The above rule is no longer required in modern browsers (and older browsers cannot load Lichess because we only support modern TLS).
 
@@ -28,9 +28,9 @@ WebSockets are special, because they are iniated with a safe request, despite of
 
 # Trusted origins
 
-* `https://lichess.org` and subdomains
-* `ionic://localhost` (mobile app web view on iOS)
-* `capacitor://localhost` (mobile app web view on iOS)
-* `http://localhost` (android app web view, or controlled by the user)
-* `http://localhost:8080` (local development)
-* Absense of `Origin` header (mobile app web view, or programmatic access controlled by the user, impossible to forge in cross site requests, note that `null` is rejected)
+- `https://lichess.org` and subdomains
+- `ionic://localhost` (mobile app web view on iOS)
+- `capacitor://localhost` (mobile app web view on iOS)
+- `http://localhost` (android app web view, or controlled by the user)
+- `http://localhost:8080` (local development)
+- Absense of `Origin` header (mobile app web view, or programmatic access controlled by the user, impossible to forge in cross site requests, note that `null` is rejected)

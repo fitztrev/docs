@@ -1,4 +1,4 @@
-The following instructions outline how to set up your development environment for starting development on Lichess. The instructions are aimed to be agnostic of the platform the stack is installed on, so a working knowledge of the specifics of your GNU/Linux distribution or other such Unix-based operating system is assumed. 
+The following instructions outline how to set up your development environment for starting development on Lichess. The instructions are aimed to be agnostic of the platform the stack is installed on, so a working knowledge of the specifics of your GNU/Linux distribution or other such Unix-based operating system is assumed.
 
 ## Getting Help
 
@@ -14,21 +14,24 @@ You may also find answers to other development-related questions in the [GitHub 
 
 Before beginning, please make sure you have the following tools installed, using your favourite package manager to install them where applicable.
 
-### Hardware 
-* At least 4 GB of RAM
-* A CPU with 64-bit architecture.
+### Hardware
+
+- At least 4 GB of RAM
+- A CPU with 64-bit architecture.
 
 ### Tools and dependency managers
-* `git`
-* `java` (JDK >= 17, type `java --version` to see if you need to update or use [jenv](https://github.com/jenv/jenv) if you need multiple jdk versions)
-* `cs` (cs >= 2, [installing coursier](https://get-coursier.io/docs/cli-installation) will provide sbt as well)
-* `node` (node >= 14.3, [install via NVM preferred](https://github.com/nvm-sh/nvm#installing-and-updating)) or ([install node only](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions))
-* `pnpm` (pnpm 8.x, type `npm i -g pnpm` after installing node) or (see the [pnpm homepage](https://pnpm.io/installation))
+
+- `git`
+- `java` (JDK >= 17, type `java --version` to see if you need to update or use [jenv](https://github.com/jenv/jenv) if you need multiple jdk versions)
+- `cs` (cs >= 2, [installing coursier](https://get-coursier.io/docs/cli-installation) will provide sbt as well)
+- `node` (node >= 14.3, [install via NVM preferred](https://github.com/nvm-sh/nvm#installing-and-updating)) or ([install node only](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions))
+- `pnpm` (pnpm 8.x, type `npm i -g pnpm` after installing node) or (see the [pnpm homepage](https://pnpm.io/installation))
 
 ### Running infrastructure
-* `mongodb` (5.1 >= mongo >= 4.2, [instructions](https://docs.mongodb.com/manual/administration/install-on-linux/), [WSL2](https://stackoverflow.com/questions/62495999/installing-mongodb-in-wsl))
-  * For WSL2, you might want to manually create the default `/data/db` directory and give ownership permissions to your user (``sudo chown -R `id -un` /data/db``). If `sudo service mongod start` does not work, you may want to open a terminal and run `mongod` as super-user.
-* `redis` 
+
+- `mongodb` (5.1 >= mongo >= 4.2, [instructions](https://docs.mongodb.com/manual/administration/install-on-linux/), [WSL2](https://stackoverflow.com/questions/62495999/installing-mongodb-in-wsl))
+  - For WSL2, you might want to manually create the default `/data/db` directory and give ownership permissions to your user (``sudo chown -R `id -un` /data/db``). If `sudo service mongod start` does not work, you may want to open a terminal and run `mongod` as super-user.
+- `redis`
 
 Alternatively, if you have setup [docker-compose](https://docs.docker.com/compose/install/) on your machine, write a `docker-compose.yml` file:
 
@@ -72,9 +75,10 @@ mongosh lichess < bin/mongodb/indexes.js # creates database indexes
 ui/build # builds client. -h for help and -w for incremental watch mode.
 ./lila # starts the SBT console
 ```
+
 Once the console has booted, you will see a `lila>` prompt. Type `compile` and sit back. The full compilation takes 5 minutes on GitHub CI servers.
 
-When it's done,  type `run` to start the HTTP server.
+When it's done, type `run` to start the HTTP server.
 Then open http://127.0.0.1:9663 in your browser.
 
 > [Read more about the SBT console commands](https://www.playframework.com/documentation/2.8.x/PlayConsole).
@@ -82,6 +86,7 @@ Then open http://127.0.0.1:9663 in your browser.
 ### Setup websockets
 
 If you need websockets (which you probably do):
+
 ```sh
 git clone https://github.com/lichess-org/lila-ws.git
 cd lila-ws
@@ -92,21 +97,25 @@ sbt run -Dcsrf.origin=http://localhost:9663
 
 Run `pnpm add-hooks` to configure the lila git workspace to format staged files with prettier prior to every commit. You may also install a prettier plugin in your code editor to format on save. All source files with the `ts`, `js`, or `json` extensions must be prettified.
 
-Watch client typescript and scss code automatically using `ui/build -w`. Changes you make to source files will be detected, compiled, and available in your browser after a [hard refresh](https://www.google.com/search?q=hard+refresh).  You may also disable asset caching in your browser inspector so that ordinary page reloads will pick up changes as well.
+Watch client typescript and scss code automatically using `ui/build -w`. Changes you make to source files will be detected, compiled, and available in your browser after a [hard refresh](https://www.google.com/search?q=hard+refresh). You may also disable asset caching in your browser inspector so that ordinary page reloads will pick up changes as well.
 
 ### Recommended: Seed database
+
 You can use https://github.com/lichess-org/lila-db-seed to seed your local database with dummy data.
+
 ```
 git clone https://github.com/lichess-org/lila-db-seed
 ```
 
 For users, games, puzzles, teams, forums, blogs, game histories, timelines, activity, and more - [use the `spamdb.py` script to populate your database](db.md) (requires python 3.9+).
+
 ```
 pip3 install pymongo
 python3 lila-db-seed/spamdb/spamdb.py --help
 ```
 
 Or, you may install game & puzzle data only:
+
 ```
 cd lila-db-seed
 mongorestore dump
@@ -141,6 +150,7 @@ cargo run -- --endpoint http://localhost:9665/fishnet/
 ```
 
 ### Optional: Setup Search
+
 [Follow these instructions to enable game, forum, team, and study search on Lila](lila-search.md)
 
 ## Development
@@ -175,6 +185,7 @@ Collaboration on the website front and back end is managed through the [lila Git
   git push origin YOUR-BRANCH # push the state of your local git to your fork.
   # notice that git push's output contains a URL you can visit to create your Pull Request
 ```
+
 A couple git configs that might ease your git workflow:
 
 - git config [branch.autoSetupMerge](https://git-scm.com/docs/git-branch#Documentation/git-branch.txt-branchautoSetupMerge) inherit
@@ -187,10 +198,12 @@ If you don't want to use the command line, I don't blame you! Consider downloadi
 
 Here are [some hints](../development/ui.md) for working on various parts of the system.
 
-Spamdb creates a `lichess` admin user and a number of mod accounts listed at the top of `lila-db-seed/spamdb/data/uids.txt`.  If you want to make an admin user manually, connect to the lichess db with `mongo lichess` and run
+Spamdb creates a `lichess` admin user and a number of mod accounts listed at the top of `lila-db-seed/spamdb/data/uids.txt`. If you want to make an admin user manually, connect to the lichess db with `mongo lichess` and run
+
 ```
 db.user4.update({ _id: "your_id" }, {$set: {roles: ["ROLE_SUPER_ADMIN"]}})
 ```
+
 With `your_id` being the username in lowercase.
 
 Installation and running notes from a new lichess-dev contributor, with detailed installation command line log and tips for running (e.g., in order to access lichess-dev from an outside system):
@@ -204,46 +217,55 @@ https://github.com/keaaw/howto/blob/main/lichess-dev.md
 
 ### IntelliJ IDE (instructions need updating)
 
-Here is a guide on how to [set up lila with the IntelliJ IDE](https://github.com/lichess-org/lila/wiki/Lichess-Development-Onboarding-(IntelliJ-on-Linux)).
+Here is a guide on how to [set up lila with the IntelliJ IDE](<https://github.com/lichess-org/lila/wiki/Lichess-Development-Onboarding-(IntelliJ-on-Linux)>).
 
 ## Troubleshooting
 
-* ```
+- ```
   [PrimaryUnavailableException$: MongoError['No primary node is available!']]
   ```
+
   Make sure mongod is running, check `/var/log/mongo/mongod.log` for errors.
   It might not start if you have too little free space (might need 3GB), or if there is a previous lock file that hasn't been cleaned up (maybe try removing `/var/lib/mongodb/mongod.lock`)
 
-* Can't create games
+- Can't create games
+
   ```
   [ERROR] p.c.s.n.PlayDefaultUpstreamHandler Cannot invoke the action
   java.lang.ArrayIndexOutOfBoundsException: 101
   ```
+
   Check `mongo --version`, and that is satisfies the requirement at the top of this page.
 
-* ```
+- ```
   java.util.concurrent.TimeoutException: Future timed out after [5 seconds]
   ```
+
   Check that MongoDB is running. Restart lila, if it was started before MongoDB.
   On OS X, the connection timeout might be needed to be increased initially (5 seconds could be too short for a cold start). See [#6718](https://github.com/lichess-org/lila/issues/6718).
 
-* Mongo error when Lila running
+- Mongo error when Lila running
+
   ```
   [error] reactivemongo.api.Cursor - fails to send request
   reactivemongo.core.errors.DatabaseException$$anon$1: DatabaseException['error processing query: ns=lichess.challenge limit=50Tree: $and
   ```
+
   or similar excptions due to missing indexes: Run `mongo lichess bin/mongodb/indexes.js` again.
 
-* Mongo error when importing games
+- Mongo error when importing games
+
   ```
   DatabaseException['cannot insert document because it exceeds 180 levels of nesting' (code = 15)]?
   ```
+
   In `/etc/mongodb.conf`:
+
   ```
   setParameter:
     maxBSONDepth: 999
   ```
 
-* `sbt` prints `Killed` and exits
+- `sbt` prints `Killed` and exits
 
   Most likely there was not enough free RAM to compile lila.

@@ -3,14 +3,15 @@ This page shows you how to set up `lila` on an [Ubuntu Linux](https://releases.u
 With this setup as a newcomer to [Scala](https://www.scala-lang.org/) and [SBT](https://www.scala-sbt.org/), you will greatly benefit from powerful features like autocompletion, library dependency management, code formatting, debugging functionalities and many more things.
 
 # Prerequisites
-* [Ubuntu Linux](https://releases.ubuntu.com/20.04/)
-* [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-* [git](https://git-scm.com/)
-* [JDK](https://openjdk.java.net/install/)
+
+- [Ubuntu Linux](https://releases.ubuntu.com/20.04/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- [git](https://git-scm.com/)
+- [JDK](https://openjdk.java.net/install/)
 
 Optionally (for an easy `redis` and `mongodb` setup): [docker-compose](https://docs.docker.com/compose/install/)
 
-# Instructions 
+# Instructions
 
 ## Scala plugin
 
@@ -54,13 +55,13 @@ We have to manually create our configurations once:
     cp conf/application.conf.default conf/application.conf
 
 There are two integrated SBT tools you would want to use:
+
 1. SBT Tool window
 1. SBT Shell
 
 ![sbt tool](https://user-images.githubusercontent.com/401815/103238471-bcd9ed80-4942-11eb-9720-fcca259a8070.png)
 
 ![sbt shell](https://user-images.githubusercontent.com/401815/103238560-fd396b80-4942-11eb-85b9-b7c3b313cf72.png)
-
 
 ## Infrastructure
 
@@ -84,17 +85,17 @@ Spin up the containers with:
 
     docker-compose up
 
-And after use shut them down with: 
+And after use shut them down with:
 
     docker-compose down
 
 ## Starting lila
 
-1. `docker-compose up` to start the infrastructure 
+1. `docker-compose up` to start the infrastructure
 1. `./ui/build` to build CSS and JS
 1. Open up the `lila` and `lila-ws` projects in IntelliJ.
 1. Go to the sbt shells in your IntelliJ projects and type `run`
-1. Visit http://localhost:9663/ 
+1. Visit http://localhost:9663/
 
 ![Lichess.dev](https://user-images.githubusercontent.com/401815/103240328-f3663700-4947-11eb-8992-9a559be711ec.png)
 

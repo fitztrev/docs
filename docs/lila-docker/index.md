@@ -10,20 +10,20 @@ The only requirements for running on your local machine are `git` and Docker Des
 
 1. Clone this repo:
 
-    ```bash
-    git clone https://github.com/fitztrev/lila-docker
-    ```
+   ```bash
+   git clone https://github.com/fitztrev/lila-docker
+   ```
 
 1. Start the services
 
-    ```bash
-    cd lila-docker
-    ./lila-docker start
-    ```
+   ```bash
+   cd lila-docker
+   ./lila-docker start
+   ```
 
-    Starting new services may take 5-10 minutes. Some services will start before others and you may see errors in the logs until everything comes online.
+   Starting new services may take 5-10 minutes. Some services will start before others and you may see errors in the logs until everything comes online.
 
-    Lila will be the last service to complete, at which point you can visit http://localhost:8080/ to see the site.
+   Lila will be the last service to complete, at which point you can visit http://localhost:8080/ to see the site.
 
 ## URLs
 

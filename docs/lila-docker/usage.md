@@ -63,24 +63,24 @@ If you're making changes to the Scalachess library, you can have lila use it ins
 
 1. Update the `build.sbt` file in the scalachess repo:
 
-    ```diff
-    -  ThisBuild / version           := "15.6.7"
-    +  ThisBuild / version           := "my-test-1"  # give it a custom version
-    ```
+   ```diff
+   -  ThisBuild / version           := "15.6.7"
+   +  ThisBuild / version           := "my-test-1"  # give it a custom version
+   ```
 
 2. Update the `Dependencies.scala` file in the lila repo:
 
-    ```diff
-    -  val chess = "org.lichess" %% "scalachess" % "15.6.7"
-    +  val chess = "org.lichess" %% "scalachess" % "my-test-1"
-    ```
+   ```diff
+   -  val chess = "org.lichess" %% "scalachess" % "15.6.7"
+   +  val chess = "org.lichess" %% "scalachess" % "my-test-1"
+   ```
 
 3. Publish the local scalachess changes and restart lila:
 
-    ```bash
-    docker compose exec lila bash -c "cd /scalachess && sbt publishLocal"
-    docker compose restart lila
-    ```
+   ```bash
+   docker compose exec lila bash -c "cd /scalachess && sbt publishLocal"
+   docker compose restart lila
+   ```
 
 Other Scalachess commands:
 
@@ -122,24 +122,24 @@ By default, your local lila instance will use the version of chessground that is
 
 1. Update the `package.json` in the `lila` repo:
 
-    ```diff
-    "dependencies": {
-    -  "chessground": "^8.3.11",
-    +  "chessground": "link:/chessground",
-    }
-    ```
+   ```diff
+   "dependencies": {
+   -  "chessground": "^8.3.11",
+   +  "chessground": "link:/chessground",
+   }
+   ```
 
 2. Start the chessground compiler in watch mode:
 
-    ```bash
-    docker compose run --rm ui bash -c "cd /chessground && pnpm install && pnpm run compile --watch"
-    ```
+   ```bash
+   docker compose run --rm ui bash -c "cd /chessground && pnpm install && pnpm run compile --watch"
+   ```
 
 3. Start the lila ui build in watch mode:
 
-    ```bash
-    docker compose run --rm ui bash -c "/lila/ui/build -w"
-    ```
+   ```bash
+   docker compose run --rm ui bash -c "/lila/ui/build -w"
+   ```
 
 Then you can see the updated chessground demo at http://localhost:8080/chessground/demo.html and when you refresh lila, it will use the local copy of chessground.
 

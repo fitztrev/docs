@@ -14,12 +14,14 @@ The [Stockfish](https://stockfishchess.org/) engine is used for a couple of thin
 To enable:
 
 1. Compile the [fishnet](https://github.com/lichess-org/fishnet) client:
+
    ```
    cd /workspace/fishnet/
    cargo build
    ```
 
 2. For **"Request a Computer Analysis"**, connect Fishnet to port 9663:
+
    ```
    cargo run -- --endpoint http://localhost:9663/fishnet/ --max-backoff 1s
    ```
@@ -56,6 +58,7 @@ By default, any emails from your development site will not really be sent, and o
 If you're working on emails, you may find it helpful to use [MailHog](https://github.com/mailhog/MailHog) to debug them and get a more inbox-type view where you can see the rendered HTML emails.
 
 1. Append these 2 lines to `/workspace/lila/conf/application.conf`:
+
    ```
    mailer.primary.mock = false
    mailer.primary.tls = false

@@ -1,4 +1,5 @@
 # User interface
+
 The mithril or snabbdom UI modules are in `ui/`. Say we work on `ui/round`, the playing UI.
 
 Enable auto-recompile:
@@ -51,9 +52,11 @@ To set up a swiss tournament, you need to be a team leader. For the Lichess one'
 
 1. [Download insights sample data](https://github.com/lichess-org/lila/files/6807098/insight.bson.zip).
 2. run
+
 ```
 mongorestore --db lichess-insight --collection insight insight.bson
 ```
+
 3. Register an account named `thibault`.
 4. Either play one rated game with it or hack [this function](https://github.com/ornicar/lila/blob/6048f3c4e223357ea99ed84ea4f0a82f251eb2fe/modules/insight/src/main/InsightApi.scala#L44).
 5. Access to `http://localhost:9663/insights/thibault/`
@@ -61,7 +64,7 @@ mongorestore --db lichess-insight --collection insight insight.bson
 # Font icon to SVG
 
 Extract all fonts as SVG
-```fontforge -lang=ff -c 'Open($1); SelectWorthOutputting(); foreach Export("svg"); endloop;' lichess.sf```
+`fontforge -lang=ff -c 'Open($1); SelectWorthOutputting(); foreach Export("svg"); endloop;' lichess.sf`
 Where `lichess.sfd` is https://github.com/ornicar/lila/blob/master/public/font/lichess.sfd
 
 # Accessibility

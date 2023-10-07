@@ -64,9 +64,9 @@ final class I18nKey(val key: String) {
 
 There are three different functions, each in two versions, one producing a fragment, i.e. for use in scalatags when generating HTML, and another producing a `String`.
 
-* Applying a key directly as `trans.theKey()` directly gives a translated fragment. Values to replace placeholders can be passed directly as arguments: `trans.theKey("abc", 42)`.
-* To use plural keys you need to use `trans.theKey.plural(42, "abc", 42)`. The first number determines the plural version to use  (i.e. "game" vs "games") and everything after that is replacing the placeholders. Note that the initial value has to be repeated in the correct position.
-* For the common case when there is only one value that both determines the plural and needs to be inserted, there is `trans.theKey.pluralSame(42)`.
+- Applying a key directly as `trans.theKey()` directly gives a translated fragment. Values to replace placeholders can be passed directly as arguments: `trans.theKey("abc", 42)`.
+- To use plural keys you need to use `trans.theKey.plural(42, "abc", 42)`. The first number determines the plural version to use (i.e. "game" vs "games") and everything after that is replacing the placeholders. Note that the initial value has to be repeated in the correct position.
+- For the common case when there is only one value that both determines the plural and needs to be inserted, there is `trans.theKey.pluralSame(42)`.
 
 And then there are the three `String` version equivalents `trans.theKey.txt`, `trans.theKey.pluralTxt` and `trans.theKey.pluralSameTxt`.
 
@@ -121,11 +121,11 @@ The `lichess.trans` function is defined in [`ui/site/src/component/trans.ts`](ht
 
 The resulting `Trans` object provides similar functions as `I18nKey` in Scala:
 
-* `trans("theKey", 42, "abc")` will give the translation for "theKey" as a `string`, replacing placeholders with `42` and `"abc"`.
-* `trans.noarg("theKey")` is a fast-path for keys without placeholders
-* `trans.plural("theKey", 42, 42, "a", "b", "c")` is for plural forms and the same as `pluralTxt` in Scala
-  * The first argument is the translation key
-  * The second argument is the number used to decide the plural form
-  * The subsequent arguments are used as replacements for the placeholders
-* `trans.vdom("theKey", h("a", ...))` can be used when the placeholders are vdom nodes and returns a list of strings and nodes.
-* `trans.vdomPlural("theKey", 42, h("a", 42))` is the same for plural forms
+- `trans("theKey", 42, "abc")` will give the translation for "theKey" as a `string`, replacing placeholders with `42` and `"abc"`.
+- `trans.noarg("theKey")` is a fast-path for keys without placeholders
+- `trans.plural("theKey", 42, 42, "a", "b", "c")` is for plural forms and the same as `pluralTxt` in Scala
+  - The first argument is the translation key
+  - The second argument is the number used to decide the plural form
+  - The subsequent arguments are used as replacements for the placeholders
+- `trans.vdom("theKey", h("a", ...))` can be used when the placeholders are vdom nodes and returns a list of strings and nodes.
+- `trans.vdomPlural("theKey", 42, h("a", 42))` is the same for plural forms
