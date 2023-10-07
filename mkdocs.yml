@@ -40,6 +40,10 @@ theme:
     - content.action.edit
     - content.code.copy
     - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - toc.follow
   font: false
   palette:
     - media: "(prefers-color-scheme: light)"
