@@ -17,8 +17,11 @@ nav:
       - lila-docker:
           - Setup: lila-docker/index.md
           - Usage: lila-docker/usage.md
+          - Scala Metals: lila-docker/scala-metals.md
       - Local Setup:
           - Setup: local-setup/index.md
+          - MacOS Notes: local-setup/mac.md
+          - Windows Notes: local-setup/windows.md
           - Database: local-setup/db.md
           - lila-search: local-setup/lila-search.md
           - Bloop: local-setup/bloop.md

@@ -1,4 +1,6 @@
-# Running spamdb - [Download from GitHub](https://github.com/lichess-org/lila-db-seed/)
+# Running spamdb
+
+[Download from GitHub](https://github.com/lichess-org/lila-db-seed/)
 
 [python3.9+](https://www.python.org/) and the pymongo module are both required. If you don't have python3, use your package manager or the [downloads page](https://www.python.org/downloads/) to install it, then get pip3 and pymongo with command line:
 
