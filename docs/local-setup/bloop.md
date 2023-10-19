@@ -2,7 +2,7 @@
 
 ### NOTE - Much of this section is out of date. Sbt is now a metals build server, and many prefer it to bloop.
 
-[bloop](https://scalacenter.github.io/bloop/) is a build server. It's the best way to work on lila. 
+[bloop](https://scalacenter.github.io/bloop/) is a build server. It's the best way to work on lila.
 
 Install it with your package manager and create a userland systemd service for it.
 
