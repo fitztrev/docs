@@ -1,0 +1,1715 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lila-docker/scala-metals/">
+      
+      
+        <link rel="next" href="mac/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Setup - Lichess Development</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35e1ed30.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-help" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Lichess Development" class="md-header__button md-logo" aria-label="Lichess Development" data-md-component="logo">
+      
+  <img src="https://lichess1.org/assets/logo/lichess-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lichess Development
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fitztrev/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Lichess Development" class="md-nav__button md-logo" aria-label="Lichess Development" data-md-component="logo">
+      
+  <img src="https://lichess1.org/assets/logo/lichess-white.svg" alt="logo">
+
+    </a>
+    Lichess Development
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fitztrev/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Dev Environments
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dev Environments
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lila-gitpod
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            lila-gitpod
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/optional-services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optional Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/api-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-gitpod/sharing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sharing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    lila-docker
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            lila-docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-docker/usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lila-docker/scala-metals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Scala Metals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Local Setup
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Local Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    Getting Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-recordings" class="md-nav__link">
+    Stream recordings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-dependency-managers" class="md-nav__link">
+    Tools and dependency managers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-infrastructure" class="md-nav__link">
+    Running infrastructure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-lila" class="md-nav__link">
+    Setup lila
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-websockets" class="md-nav__link">
+    Setup websockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-dev-tip" class="md-nav__link">
+    UI dev tip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-seed-database" class="md-nav__link">
+    Recommended: Seed database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-stockfish-analysis" class="md-nav__link">
+    Optional: Setup Stockfish analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-play-with-the-computer" class="md-nav__link">
+    Optional: Setup "Play with the computer"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-search" class="md-nav__link">
+    Optional: Setup Search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    Development
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bloop-based-setup-for-hacking-lila-scala-code" class="md-nav__link">
+    Bloop based setup for hacking lila scala code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    Code formatting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-miscellaneous-tips" class="md-nav__link">
+    Other miscellaneous tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    Alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-ide-instructions-need-updating" class="md-nav__link">
+    IntelliJ IDE (instructions need updating)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mac/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MacOS Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lila-search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    lila-search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bloop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bloop
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intellij/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    intellij
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/lilaisms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lilaisms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/conventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/translations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Translations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/csrf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSRF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/firefox-multi-account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firefox Multi-Account
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Other Resources
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    Getting Help
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stream-recordings" class="md-nav__link">
+    Stream recordings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-and-dependency-managers" class="md-nav__link">
+    Tools and dependency managers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-infrastructure" class="md-nav__link">
+    Running infrastructure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-lila" class="md-nav__link">
+    Setup lila
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-websockets" class="md-nav__link">
+    Setup websockets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui-dev-tip" class="md-nav__link">
+    UI dev tip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-seed-database" class="md-nav__link">
+    Recommended: Seed database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-stockfish-analysis" class="md-nav__link">
+    Optional: Setup Stockfish analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-play-with-the-computer" class="md-nav__link">
+    Optional: Setup "Play with the computer"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-setup-search" class="md-nav__link">
+    Optional: Setup Search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    Development
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bloop-based-setup-for-hacking-lila-scala-code" class="md-nav__link">
+    Bloop based setup for hacking lila scala code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-formatting" class="md-nav__link">
+    Code formatting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-miscellaneous-tips" class="md-nav__link">
+    Other miscellaneous tips
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    Alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intellij-ide-instructions-need-updating" class="md-nav__link">
+    IntelliJ IDE (instructions need updating)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/fitztrev/docs/blob/main/docs/local-setup/index.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Setup</h1>
+
+<p>The following instructions outline how to set up your development environment for starting development on Lichess. The instructions are aimed to be agnostic of the platform the stack is installed on, so a working knowledge of the specifics of your GNU/Linux distribution or other such Unix-based operating system is assumed.</p>
+<h2 id="getting-help">Getting Help</h2>
+<p>If you get stuck during the installation process the most suitable place to seek help is the <code>#lichess-dev-onboarding</code> channel on Discord (https://discord.gg/lichess). The main developer of Lichess (thibault) can be found there as well as several people who have successfully installed the stack.</p>
+<h2 id="stream-recordings">Stream recordings</h2>
+<p><a href="https://www.youtube.com/watch?v=AejdHlL902w&amp;list=PLe5ZNOR8Ttm1LlBRmmnccZkQa7XH1K0rK"><img alt="https://www.youtube.com/watch?v=AejdHlL902w" src="https://img.youtube.com/vi/AejdHlL902w/0.jpg" /></a></p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before beginning, please make sure you have the following tools installed, using your favorite package manager to install them where applicable.</p>
+<h3 id="hardware">Hardware</h3>
+<ul>
+<li>At least 4 GB of RAM</li>
+<li>A CPU with 64-bit architecture.</li>
+</ul>
+<h3 id="tools-and-dependency-managers">Tools and dependency managers</h3>
+<ul>
+<li><code>git</code></li>
+<li><code>java</code> (JDK &gt;= 17, type <code>java --version</code> to see if you need to update or use <a href="https://github.com/jenv/jenv">jenv</a> if you need multiple jdk versions)</li>
+<li><code>cs</code> (cs &gt;= 2, <a href="https://get-coursier.io/docs/cli-installation">installing coursier</a> will provide sbt as well)</li>
+<li><code>node</code> (node &gt;= 14.3, <a href="https://github.com/nvm-sh/nvm#installing-and-updating">install via NVM preferred</a>) or (<a href="https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions">install node only</a>)</li>
+<li><code>pnpm</code> (pnpm 8.x, type <code>npm i -g pnpm</code> after installing node) or (see the <a href="https://pnpm.io/installation">pnpm homepage</a>)</li>
+</ul>
+<h3 id="running-infrastructure">Running infrastructure</h3>
+<ul>
+<li><code>mongodb</code> (5.1 &gt;= mongo &gt;= 4.2, <a href="https://docs.mongodb.com/manual/administration/install-on-linux/">instructions</a>, <a href="https://stackoverflow.com/questions/62495999/installing-mongodb-in-wsl">WSL2</a>)</li>
+<li>For WSL2, you might want to manually create the default <code>/data/db</code> directory and give ownership permissions to your user (<code>sudo chown -R `id -un` /data/db</code>). If <code>sudo service mongod start</code> does not work, you may want to open a terminal and run <code>mongod</code> as super-user.</li>
+<li><code>redis</code></li>
+</ul>
+<p>Alternatively, if you have setup <a href="https://docs.docker.com/compose/install/">docker-compose</a> on your machine, write a <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre><span></span><code>version: &quot;3.3&quot;
+services:
+  redis:
+    image: redis:6-alpine
+    ports:
+      - 6379:6379
+  mongo:
+    image: mongo:5.0
+    restart: always
+    container_name: lila_mongo
+    ports:
+      - 27017:27017
+    volumes:
+      # use `docker exec -it lila_mongo bash` to get a shell inside mongo
+      # container. Directory containing this docker-compose.yml will be mounted
+      # as /host inside container so you can import db dumps, etc.
+      - .:/host
+      - lila_mongo_data:/data/db
+
+volumes:
+  lila_mongo_data: {}
+</code></pre></div>
+<p>and spin up a <code>redis</code> and <code>mongodb</code> instance with:</p>
+<pre><code>docker-compose up
+</code></pre>
+<h2 id="installation">Installation</h2>
+<h3 id="setup-lila">Setup lila</h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/lichess-org/lila.git
+<span class="nb">cd</span><span class="w"> </span>lila
+mongosh<span class="w"> </span>lichess<span class="w"> </span>&lt;<span class="w"> </span>bin/mongodb/indexes.js<span class="w"> </span><span class="c1"># creates database indexes</span>
+<span class="c1"># or `mongosh mongodb://localhost:27017/lichess &lt; lila/bin/mongodb/indexes.js` if you use docker</span>
+ui/build<span class="w"> </span><span class="c1"># builds client. -h for help and -w for incremental watch mode.</span>
+./lila<span class="w"> </span><span class="c1"># starts the SBT console</span>
+</code></pre></div>
+<p>Once the console has booted, you will see a <code>lila&gt;</code> prompt. Type <code>compile</code> and sit back. The full compilation takes 5 minutes on GitHub CI servers.</p>
+<p>When it's done, type <code>run</code> to start the HTTP server.
+Then open http://127.0.0.1:9663 in your browser.</p>
+<blockquote>
+<p><a href="https://www.playframework.com/documentation/2.8.x/PlayConsole">Read more about the SBT console commands</a>.</p>
+</blockquote>
+<h3 id="setup-websockets">Setup websockets</h3>
+<p>If you need websockets (which you probably do):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lichess-org/lila-ws.git
+<span class="nb">cd</span><span class="w"> </span>lila-ws
+sbt<span class="w"> </span>run<span class="w"> </span>-Dcsrf.origin<span class="o">=</span>http://localhost:9663
+</code></pre></div>
+<h3 id="ui-dev-tip">UI dev tip</h3>
+<p>Run <code>pnpm add-hooks</code> to configure the lila git workspace to format staged files with prettier prior to every commit. You may also install a prettier plugin in your code editor to format on save. All source files with the <code>ts</code>, <code>js</code>, or <code>json</code> extensions must be prettified.</p>
+<p>Watch client typescript and scss code automatically using <code>ui/build -w</code>. Changes you make to source files will be detected, compiled, and available in your browser after a <a href="https://www.google.com/search?q=hard+refresh">hard refresh</a>. You may also disable asset caching in your browser inspector so that ordinary page reloads will pick up changes as well.</p>
+<h3 id="recommended-seed-database">Recommended: Seed database</h3>
+<p>You can use https://github.com/lichess-org/lila-db-seed to seed your local database with dummy data.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/lichess-org/lila-db-seed
+</code></pre></div>
+<p>For users, games, puzzles, teams, forums, blogs, game histories, timelines, activity, and more - <a href="db/">use the <code>spamdb.py</code> script to populate your database</a> (requires python 3.9+).</p>
+<div class="highlight"><pre><span></span><code>pip3 install pymongo
+python3 lila-db-seed/spamdb/spamdb.py --help
+</code></pre></div>
+<p>Or, you may install game &amp; puzzle data only:</p>
+<div class="highlight"><pre><span></span><code>cd lila-db-seed
+mongorestore dump
+</code></pre></div>
+<h3 id="optional-setup-stockfish-analysis">Optional: Setup Stockfish analysis</h3>
+<p>Start a fishnet client for analysis (requires a recent <a href="https://rustup.rs/">Rust toolchain</a> to build from source, <a href="https://github.com/lichess-org/fishnet#readme">alternatives</a>):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/lichess-org/fishnet.git
+<span class="nb">cd</span><span class="w"> </span>fishnet
+cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--endpoint<span class="w"> </span>http://localhost:9663/fishnet/
+</code></pre></div>
+<h3 id="optional-setup-play-with-the-computer">Optional: Setup "Play with the computer"</h3>
+<p>lila-fishnet enables playing vs Stockfish (not needed for analysis):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/lichess-org/lila-fishnet.git
+<span class="nb">cd</span><span class="w"> </span>lila-fishnet
+sbt<span class="w"> </span>run<span class="w"> </span>-Dhttp.port<span class="o">=</span><span class="m">9665</span>
+</code></pre></div>
+<p>You will also need a client. Start a fishnet client for play against the machine (requires a recent <a href="https://rustup.rs/">Rust toolchain</a> to build from source, <a href="https://github.com/lichess-org/fishnet#readme">alternatives</a>):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recursive<span class="w"> </span>https://github.com/lichess-org/fishnet.git
+<span class="nb">cd</span><span class="w"> </span>fishnet
+cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--endpoint<span class="w"> </span>http://localhost:9665/fishnet/
+</code></pre></div>
+<h3 id="optional-setup-search">Optional: Setup Search</h3>
+<p><a href="lila-search/">Follow these instructions to enable game, forum, team, and study search on Lila</a></p>
+<h2 id="development">Development</h2>
+<p><a href="../development/ui/">Learn more about using <code>pnpm</code> and <code>ui/build</code> to work on client code</a></p>
+<h3 id="bloop-based-setup-for-hacking-lila-scala-code">Bloop based setup for hacking lila scala code</h3>
+<p><a href="bloop/">Set up bloop for quick builds and IDE features</a>.</p>
+<h3 id="code-formatting">Code formatting</h3>
+<p>These repositories use <a href="https://scalameta.org/scalafmt/">scalafmt</a> for Scala and <a href="https://prettier.io/">prettier</a> for everything else.</p>
+<p>Please <a href="https://scalameta.org/scalafmt/docs/installation.html">install scalafmt for your editor</a>, or run <code>scalafmtAll</code> in the sbt console before submitting code.</p>
+<p>Likewise, pick a plugin for prettier (<a href="https://github.com/neoclide/coc-prettier">coc-prettier</a> is good for nvim), or type <code>pnpm format</code> in the project root.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Collaboration on the website front and back end is managed through the <a href="https://github.com/lichess.org/lila">lila GitHub repo</a>. You may contribute using the GitHub <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Request</a> mechanism. Assuming you have <code>git</code> installed, a GitHub account with <a href="https://mgimond.github.io/Colby-summer-git-workshop-2021/authenticating-with-github.html">authentication</a> in place, a <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">fork</a> of the lila repo - the following commands will get you started.</p>
+<div class="highlight"><pre><span></span><code>  git clone --single-branch --filter=blob:none https://github.com/YOUR-USERNAME/lila # get the sources
+  # git clone --single-branch --filter=blob:none git@github.com:YOUR-USERNAME/lila.git # operate over SSH
+  git remote add upstream https://github.com/lichess-org/lila # add a ref for the parent repo
+  git checkout -b YOUR-BRANCH # branches are human readable &amp; dash separated, otherwise your choice
+  # make your edits to sources
+  git add -A # stages all changes
+  git commit -m &#39;your commit message&#39; # commit staged changes to git on your host
+  # you might want to rebase against master and resolve conflict(s) before pushing
+  git push origin YOUR-BRANCH # push the state of your local git to your fork.
+  # notice that git push&#39;s output contains a URL you can visit to create your Pull Request
+</code></pre></div>
+<p>A couple git configs that might ease your git workflow:</p>
+<ul>
+<li>git config <a href="https://git-scm.com/docs/git-branch#Documentation/git-branch.txt-branchautoSetupMerge">branch.autoSetupMerge</a> inherit</li>
+<li>git config <a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt-pushautoSetupRemote">push.autoSetupRemote</a> true</li>
+<li>git config <a href="https://git-scm.com/docs/git-push#Documentation/git-push.txt-pushdefault">push.default</a> current</li>
+</ul>
+<p>If you don't want to use the command line, I don't blame you! Consider downloading and getting acquainted with <a href="https://desktop.github.com/">GitHub Desktop</a> for Windows, Mac, or <a href="https://github.com/shiftkey/desktop#installation-via-package-manager">Linux</a>. It's a basic UI with menus and things to click and will walk you through forking a project for the first time. Most will find it less intimidating than the command line procedures. But if you want even more command line, there is a dedicated <a href="https://cli.github.com">GitHub CLI</a> for you to try out!</p>
+<h2 id="other-miscellaneous-tips">Other miscellaneous tips</h2>
+<p>Here are <a href="../development/ui/">some hints</a> for working on various parts of the system.</p>
+<p>Spamdb creates a <code>lichess</code> admin user and a number of mod accounts listed at the top of <code>lila-db-seed/spamdb/data/uids.txt</code>. If you want to make an admin user manually, connect to the lichess db with <code>mongo lichess</code> and run</p>
+<div class="highlight"><pre><span></span><code>db.user4.update({ _id: &quot;your_id&quot; }, {$set: {roles: [&quot;ROLE_SUPER_ADMIN&quot;]}})
+</code></pre></div>
+<p>With <code>your_id</code> being the username in lowercase.</p>
+<p>Installation and running notes from a new lichess-dev contributor, with detailed installation command line log and tips for running (e.g., in order to access lichess-dev from an outside system):
+https://github.com/keaaw/howto/blob/main/lichess-dev.md</p>
+<h2 id="alternatives">Alternatives</h2>
+<h3 id="docker">Docker</h3>
+<p><a href="https://github.com/benediktwerner/lichess-docker">Here</a> is a Docker setup that allows running lila and all services required for it in a Docker container. Running in Docker simplifies setup and guarantees that your development environment will perfectly match that of anyone else who uses that setup, eliminating the "it works on my machine" phenomena. However, it is always more performant to run any project directly on its host machine.</p>
+<h3 id="intellij-ide-instructions-need-updating">IntelliJ IDE (instructions need updating)</h3>
+<p>Here is a guide on how to <a href="intellij/">set up lila with the IntelliJ IDE</a>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li><code>[PrimaryUnavailableException$: MongoError['No primary node is available!']]</code></li>
+</ul>
+<p>Make sure mongod is running, check <code>/var/log/mongo/mongod.log</code> for errors.
+  It might not start if you have too little free space (might need 3GB), or if there is a previous lock file that hasn't been cleaned up (maybe try removing <code>/var/lib/mongodb/mongod.lock</code>)</p>
+<ul>
+<li>Can't create games</li>
+</ul>
+<div class="highlight"><pre><span></span><code>[ERROR] p.c.s.n.PlayDefaultUpstreamHandler Cannot invoke the action
+java.lang.ArrayIndexOutOfBoundsException: 101
+</code></pre></div>
+<p>Check <code>mongo --version</code>, and that is satisfies the requirement at the top of this page.</p>
+<ul>
+<li><code>java.util.concurrent.TimeoutException: Future timed out after [5 seconds]</code></li>
+</ul>
+<p>Check that MongoDB is running. Restart lila, if it was started before MongoDB.
+  On OS X, the connection timeout might be needed to be increased initially (5 seconds could be too short for a cold start). See <a href="https://github.com/lichess-org/lila/issues/6718">#6718</a>.</p>
+<ul>
+<li>Mongo error when Lila running</li>
+</ul>
+<div class="highlight"><pre><span></span><code>[error] reactivemongo.api.Cursor - fails to send request
+reactivemongo.core.errors.DatabaseException$$anon$1: DatabaseException[&#39;error processing query: ns=lichess.challenge limit=50Tree: $and
+</code></pre></div>
+<p>or similar exceptions due to missing indexes: Run <code>mongo lichess bin/mongodb/indexes.js</code> again.</p>
+<ul>
+<li>Mongo error when importing games</li>
+</ul>
+<div class="highlight"><pre><span></span><code>DatabaseException[&#39;cannot insert document because it exceeds 180 levels of nesting&#39; (code = 15)]?
+</code></pre></div>
+<p>In <code>/etc/mongodb.conf</code>:</p>
+<div class="highlight"><pre><span></span><code>setParameter:
+  maxBSONDepth: 999
+</code></pre></div>
+<ul>
+<li><code>sbt</code> prints <code>Killed</code> and exits</li>
+</ul>
+<p>Most likely there was not enough free RAM to compile lila.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lila-docker/scala-metals/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Scala Metals">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Scala Metals
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="mac/" class="md-footer__link md-footer__link--next" aria-label="Next: MacOS Notes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                MacOS Notes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.code.copy", "navigation.footer", "navigation.instant", "navigation.instant.progress", "navigation.sections", "toc.follow"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
